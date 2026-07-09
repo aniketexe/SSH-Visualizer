@@ -31,6 +31,8 @@ Same input always produces the same art — that's the point. It's how OpenSSH l
 
 ## Usage
 
+**Try it live:** [ssh-visualizer.netlify.app](https://ssh-visualizer.netlify.app/)
+
 Open `randomart.html` in any modern browser. Paste or type into the input field, pick a hash algorithm (MD5 matches classic `ssh-keygen -lv` output; SHA-256 matches the modern default fingerprint basis), and press **Generate**.
 
 Supported input formats:
