@@ -19,15 +19,15 @@ Same input always produces the same art — that's the point. It's how OpenSSH l
 
 **Empty state**
 
-![Empty state](screenshots/01-empty-state.png)
+![Empty state](Images/01-empty-state.png)
 
 **Generated from plain text (`tree`)**
 
-![Text input generated](screenshots/02-text-input.png)
+![Text input generated](Images/02-text-input.png)
 
 **Generated from an SSH public key (SHA-256)**
 
-![SSH key input generated](03-ssh-key-input.png)
+![SSH key input generated](Images/03-ssh-key-input.png)
 
 ## Usage
 
