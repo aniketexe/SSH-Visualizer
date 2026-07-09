@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Generate deterministic OpenSSH-style randomart (drunken bishop) from an SSH key, name, word, or any text — entirely client-side, no data leaves your browser.">
 <title>RANDOMART // SSH KEY VISUALIZER</title>
 <style>
   :root{
@@ -13,7 +14,7 @@
     --amber:#e6a24e;
     --red:#e6524e;
     --text:#c8d6d4;
-    --text-dim:#5c6e6c;
+    --text-dim:#8a9e9b;
     --grid:#101617;
   }
   *{box-sizing:border-box;}
@@ -101,6 +102,11 @@
   button.ghost:hover{background:#141a1a; color:var(--text);}
   .err{color:var(--red); font-size:11px; margin-top:10px; min-height:14px; letter-spacing:0.04em;}
 
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
   .out{display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start;}
   .art-box{flex:0 0 auto;}
   pre.art{
@@ -121,7 +127,7 @@
 
   footer{
     margin-top:28px; font-size:9.5px; color:var(--text-dim);
-    letter-spacing:0.14em; text-align:center; opacity:0.6;
+    letter-spacing:0.14em; text-align:center;
   }
 
   @media(max-width:640px){
@@ -133,21 +139,22 @@
 </head>
 <body>
 <div class="scanlines"></div>
-<div class="wrap">
+<main class="wrap">
 
-  <div class="hdr">
+  <header class="hdr">
     <div>
       <h1>RANDOMART // SSH_VISUALIZER</h1>
       <div class="sub">DRUNKEN BISHOP ALGORITHM · OPENSSH-COMPATIBLE · ANY TEXT ACCEPTED</div>
     </div>
     <div class="status"><span class="dot"></span>LOCAL EXECUTION · NO KEY LEAVES BROWSER</div>
-  </div>
+  </header>
 
   <div class="panel" data-tag="INPUT">
     <label for="keyInput">SSH Key, Word, Name, or Any Phrase</label>
     <textarea id="keyInput" placeholder="Paste an SSH public/private key, or type any word or phrase..."></textarea>
 
     <div class="row">
+      <label for="hashAlgo" class="visually-hidden">Hash Algorithm</label>
       <select id="hashAlgo">
         <option value="md5">MD5 (legacy, matches classic ssh-keygen -lv)</option>
         <option value="sha256">SHA-256 (fingerprint basis, longer art field)</option>
@@ -177,7 +184,7 @@
   </div>
 
   <footer>ART IS DETERMINISTIC — SAME INPUT ALWAYS PRODUCES SAME PATTERN — WORKS ON SSH KEYS, WORDS, NAMES, OR ANY TEXT</footer>
-</div>
+</main>
 
 <script>
 /* ---------- MD5 (needed because browsers have no native MD5) ---------- */
