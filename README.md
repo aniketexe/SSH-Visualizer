@@ -27,7 +27,7 @@ Same input always produces the same art — that's the point. It's how OpenSSH l
 
 **Generated from an SSH public key (SHA-256)**
 
-![SSH key input generated](screenshots/03-ssh-key-input.png)
+![SSH key input generated](03-ssh-key-input.png)
 
 ## Usage
 
